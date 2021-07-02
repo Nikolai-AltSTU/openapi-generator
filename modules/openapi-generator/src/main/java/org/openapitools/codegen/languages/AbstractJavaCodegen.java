@@ -491,6 +491,9 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
             setDevelopersOverridden(true);
         }
 
+        //
+
+        //
 
         // make api and model doc path available in mustache template
         additionalProperties.put("apiDocPath", apiDocPath);
