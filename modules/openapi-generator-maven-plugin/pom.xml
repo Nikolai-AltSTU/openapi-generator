@@ -8,10 +8,7 @@
     <version>5.2.0-SNAPSHOT</version>
     <relativePath>../../pom.xml</relativePath>
   </parent>
-  <groupId>org.openapitools</groupId>
   <artifactId>openapi-generator-maven-plugin</artifactId>
-  <version>5.2.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
   <name>openapi-generator (maven-plugin)</name>
   <description>maven plugin to build modules from OpenAPI Generator</description>
   <properties>
@@ -123,61 +120,4 @@
       </plugin>
     </plugins>
   </build>
-  <profiles>
-    <profile>
-      <id>integration</id>
-      <build>
-        <plugins>
-          <plugin>
-            <artifactId>maven-invoker-plugin</artifactId>
-            <version>3.2.1</version>
-            <executions>
-              <execution>
-                <id>integration-test</id>
-                <goals>
-                  <goal>run</goal>
-                </goals>
-              </execution>
-            </executions>
-            <dependencies>
-              <dependency>
-                <groupId>org.codehaus.groovy</groupId>
-                <artifactId>groovy</artifactId>
-                <version>${groovy.version}</version>
-                <scope>runtime</scope>
-              </dependency>
-            </dependencies>
-            <configuration>
-              <postBuildHookScript>verify</postBuildHookScript>
-              <showVersion>true</showVersion>
-              <streamLogs>true</streamLogs>
-              <noLog>false</noLog>
-              <showErrors>true</showErrors>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-    <profile>
-      <id>static-analysis</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>com.github.spotbugs</groupId>
-            <artifactId>spotbugs-maven-plugin</artifactId>
-            <configuration>
-              <excludeFilterFile>${project.parent.basedir}${file.separator}spotbugs-exclude.xml</excludeFilterFile>
-            </configuration>
-          </plugin>
-          <plugin>
-            <artifactId>maven-pmd-plugin</artifactId>
-          </plugin>
-          <plugin>
-            <groupId>se.bjurr.violations</groupId>
-            <artifactId>violations-maven-plugin</artifactId>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
 </project>
