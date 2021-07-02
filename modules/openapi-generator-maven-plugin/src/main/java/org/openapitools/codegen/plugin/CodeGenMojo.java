@@ -435,12 +435,12 @@ public class CodeGenMojo extends AbstractMojo {
 
     /**
      * Flags to hide sections in pom.mustache
-     *
-    @Parameter(name = "developers", property = "openapi.generator.maven.plugin.developersOverridden")
+     */
+    @Parameter(name = "developers-creating", property = "openapi.generator.maven.plugin.developersOverridden")
     protected Boolean developersOverridden;
-    @Parameter(name = "licensesOverridden", property = "openapi.generator.maven.plugin.licensesOverridden")
+    @Parameter(name = "licenses-creating", property = "openapi.generator.maven.plugin.licensesOverridden")
     protected Boolean licensesOverridden;
-    @Parameter(name = "parentOverridden", property = "openapi.generator.maven.plugin.parent")
+    @Parameter(name = "parent-creating", property = "openapi.generator.maven.plugin.parentOverridden")
     protected Boolean parentOverridden;
     /**/
 
