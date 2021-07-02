@@ -433,6 +433,17 @@ public class CodeGenMojo extends AbstractMojo {
     @Parameter(readonly = true, required = true, defaultValue = "${project}")
     private MavenProject project;
 
+    /**
+     * Flags to hide sections in pom.mustache
+     *
+    @Parameter(name = "developers", property = "openapi.generator.maven.plugin.developersOverridden")
+    protected Boolean developersOverridden;
+    @Parameter(name = "licensesOverridden", property = "openapi.generator.maven.plugin.licensesOverridden")
+    protected Boolean licensesOverridden;
+    @Parameter(name = "parentOverridden", property = "openapi.generator.maven.plugin.parent")
+    protected Boolean parentOverridden;
+    /**/
+
     public void setBuildContext(BuildContext buildContext) {
         this.buildContext = buildContext;
     }

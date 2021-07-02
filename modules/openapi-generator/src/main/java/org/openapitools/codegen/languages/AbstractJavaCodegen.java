@@ -110,6 +110,8 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     protected String parentArtifactId = "";
     protected String parentVersion = "";
     protected boolean parentOverridden = false;
+    protected boolean licensesOverridden = true;
+    protected boolean developersOverridden = true;
     protected List<String> additionalModelTypeAnnotations = new LinkedList<>();
     protected List<String> additionalEnumTypeAnnotations = new LinkedList<>();
     protected boolean openApiNullable = true;
@@ -476,20 +478,19 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         }
 
         if (!StringUtils.isEmpty(parentGroupId) && !StringUtils.isEmpty(parentArtifactId) && !StringUtils.isEmpty(parentVersion) && (!additionalProperties.containsKey("parent") || additionalProperties.get("parent").equals(true))) {
-            additionalProperties.put("parentOverridden", true);
+            additionalProperties.put(CodegenConstants.PARENT_OVERRIDEN, true);
         }
 
         if (!additionalProperties.containsKey("licenses") || additionalProperties.get("licenses").equals(true)) {
-            additionalProperties.put("licensesOverridden", true);
+            additionalProperties.put(CodegenConstants.LICENSES_OVERRIDEN, true);
+            setLicensesOverridden(true);
         }
 
         if (!additionalProperties.containsKey("developers") || additionalProperties.get("developers").equals(true)) {
-            additionalProperties.put("developersOverridden", true);
+            additionalProperties.put(CodegenConstants.DEVELOPERS_OVERRIDEN, true);
+            setDevelopersOverridden(true);
         }
 
-        //
-
-        //
 
         // make api and model doc path available in mustache template
         additionalProperties.put("apiDocPath", apiDocPath);
@@ -1575,6 +1576,22 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
 
     public String getScmDeveloperConnection() {
         return scmDeveloperConnection;
+    }
+
+    public boolean isDevelopersOverridden() {
+        return developersOverridden;
+    }
+
+    public void setDevelopersOverridden(boolean developersOverridden) {
+        this.developersOverridden = developersOverridden;
+    }
+
+    public boolean isLicensesOverridden() {
+        return licensesOverridden;
+    }
+
+    public void setLicensesOverridden(boolean licensesOverridden) {
+        this.licensesOverridden = licensesOverridden;
     }
 
     public void setScmDeveloperConnection(String scmDeveloperConnection) {

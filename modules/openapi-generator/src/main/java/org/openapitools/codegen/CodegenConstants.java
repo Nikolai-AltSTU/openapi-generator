@@ -385,4 +385,9 @@ public class CodegenConstants {
         "If true (default), keep the old (incorrect) behaviour that 'additionalProperties' is set to false by default.";
     public static final String USE_ONEOF_DISCRIMINATOR_LOOKUP = "useOneOfDiscriminatorLookup";
     public static final String USE_ONEOF_DISCRIMINATOR_LOOKUP_DESC = "Use the discriminator's mapping in oneOf to speed up the model lookup. IMPORTANT: Validation (e.g. one and only one match in oneOf's schemas) will be skipped.";
+
+    // flags to hide sections in pom.xml
+    public static final String PARENT_OVERRIDEN = "parentOverridden";
+    public static final String LICENSES_OVERRIDEN = "licensesOverridden";
+    public static final String DEVELOPERS_OVERRIDEN = "developersOverridden";
 }

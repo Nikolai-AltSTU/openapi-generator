@@ -23,8 +23,8 @@ scmUrl: https://github.com/Nikolai-AltSTU/openapi-generator.git
 apiPackage: ru.practice.client.api
 modelPackage: ru.practice.client.model
 invokerPackage: ru.practice.client
-licenses: false
+licenses: true
 developers: false
-parent: false
+parent: true
 
 # mvn -f pom.genclient.xml process-sources
